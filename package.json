@@ -1,7 +1,16 @@
 {
-  "name": "node-starter",
+  "name": "starter",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
+  },
+  "version": "1.0.0",
+  "description": "[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/sujal-jain-activities/backend-dev)",
+  "main": "index.js",
+  "author": "Sujal jain",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
