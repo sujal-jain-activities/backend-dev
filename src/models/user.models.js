@@ -22,11 +22,17 @@ const userSchema = new mongoose.Schema({
     },
     coverImg:{
         type:String,
+    },
+    password:{
+        type:String,
+        required:true,
+    },
+    refreshToken:{
+        type:String,
     }
-
 },{timestamps:true});
 
-userSchema.pre("save",async function(next){
+userSchema.pre("save", async function(next){
     if(!this.isModified("password")){
         return next();
     }
