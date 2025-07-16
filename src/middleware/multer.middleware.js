@@ -1,3 +1,4 @@
+//when ever we upload file in server it will use as a middleware
 import multer from "multer";
 import path from "path";
 
@@ -13,3 +14,5 @@ const storage = multer.diskStorage({
 export const upload = multer({
     storage:storage,
 })
+
+

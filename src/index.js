@@ -1,17 +1,15 @@
 import express from "express";
 import connectDb from "./db/index.js"; // adjust the path as needed
 import dotenv from "dotenv";
+import app from "./app.js";
 
 dotenv.config();
 
-const app = express();
+const PORT = process.env.PORT || 8000;
 
-app.get("/",(req,res)=>{
-    res.send("Hello World!");
-})
 // Connect to MongoDB
 connectDb();
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(PORT, () => {
+    console.log("Server is running on port",PORT);
 });
