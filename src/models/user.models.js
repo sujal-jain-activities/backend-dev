@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import  jwt  from "jsonwebtoken";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const userSchema = new mongoose.Schema({
     username:{
@@ -52,20 +55,24 @@ userSchema.methods.generateTokenSecreat = function(){
         username:this.username,
         email:this.email,
         fullName:this.fullName,
-    }),
+    },
     process.env.ACCESS_TOKEN_SECREAT,
     {
-        expiresIn:ACCESS_TOKEN_EXPIRES,
+        expiresIn:process.env.ACCESS_TOKEN_EXPIRES,
     }
+)
+    
 }
 userSchema.methods.generateRefreshToken = function(){
     return jwt.sign({
         _id:this._id,
-    }),
+    },
     process.env.REFREASH_TOKEN_SECREAT,
     {
-        expiresIn:REFREASH_TOKEN_EXPIRES,
+        expiresIn:process.env.REFREASH_TOKEN_EXPIRES,
     }
+)
+    
 }
 
 export const User = mongoose.model("User", userSchema)
